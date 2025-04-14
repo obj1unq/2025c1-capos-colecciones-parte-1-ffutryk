@@ -23,10 +23,8 @@ object rolando {
   }
 
   method irAlHogar() {
-    inventario.forEach({ artefacto => 
-      inventario.remove(artefacto)
-      hogar.almacenar(artefacto)
-    })
+    hogar.depositar(inventario)
+    inventario.clear()
   }
 
   method tieneCapacidad() = inventario.size() < capacidadMaxima
@@ -39,7 +37,7 @@ object rolando {
 object castilloDePiedra {
   const property almacen = #{}
 
-  method almacenar(artefacto) {
-    almacen.add(artefacto)
+  method depositar(artefactos) {
+    almacen.addAll(artefactos)
   }
 }

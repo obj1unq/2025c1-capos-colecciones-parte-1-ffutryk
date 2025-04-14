@@ -5,9 +5,25 @@ object armaduraDeAceroValyrio {}
 
 object rolando {
   const property inventario = []
+  const hogar = castilloDePiedra
   var property capacidadMaxima = 2
   
   method agarrar(artefacto) {
     if (inventario.size() < capacidadMaxima) inventario.add(artefacto)
+  }
+
+  method irAlHogar() {
+    inventario.forEach({ artefacto => 
+      inventario.remove(artefacto)
+      hogar.almacenar(artefacto)
+    })
+  }
+}
+
+object castilloDePiedra {
+  const property almacen = []
+
+  method almacenar(artefacto) {
+    almacen.add(artefacto)
   }
 }

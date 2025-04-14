@@ -72,3 +72,16 @@ describe "Saber los artefactos de Rolando" {
     assert.notThat(rolando.posee(collarDivino))
   }
 }
+
+describe "Saber la historia de los encuentros con los artefactos." {
+  test "Se desea saber el orden en que rolando fue encontrandose los artefactos, independientemente de si los agarró o no." {
+    rolando.agarrar(espadaDelDestino)
+    rolando.agarrar(libroDeHechizos)
+    rolando.agarrar(collarDivino)
+    rolando.irAlHogar()
+    rolando.agarrar(armaduraDeAceroValyrio)
+    rolando.agarrar(collarDivino)
+
+    assert.equals([espadaDelDestino, libroDeHechizos, collarDivino, armaduraDeAceroValyrio, collarDivino], rolando.historial())
+  }
+}

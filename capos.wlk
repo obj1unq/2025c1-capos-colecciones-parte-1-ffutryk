@@ -7,7 +7,14 @@ object rolando {
   const property inventario = #{}
   const property historial = []
   const hogar = castilloDePiedra
-  var property capacidadMaxima = 2
+  var capacidadMaxima = 2
+
+  method incrementarCapacidad(cantidad) {
+    capacidadMaxima += cantidad
+  }
+
+  // Getter para los test
+  method capacidadMaxima() = capacidadMaxima
   
   method encontrar(artefacto) {
     historial.add(artefacto)

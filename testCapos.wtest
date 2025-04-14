@@ -26,7 +26,7 @@ describe "Rolando" {
     rolando.encontrar(espadaDelDestino)
     rolando.encontrar(libroDeHechizos)
 
-    rolando.capacidadMaxima(3)
+    rolando.incrementarCapacidad(1)
     assert.equals(3, rolando.capacidadMaxima())
 
     rolando.encontrar(collarDivino)

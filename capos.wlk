@@ -18,7 +18,8 @@ object rolando {
   
   method encontrar(artefacto) {
     historial.add(artefacto)
-    if (inventario.size() < capacidadMaxima) inventario.add(artefacto)
+    
+    if (self.tieneCapacidad()) inventario.add(artefacto)
   }
 
   method irAlHogar() {
@@ -27,6 +28,8 @@ object rolando {
       hogar.almacenar(artefacto)
     })
   }
+
+  method tieneCapacidad() = inventario.size() < capacidadMaxima
 
   method artefactosEnPosesion() = inventario + hogar.almacen()
 

@@ -33,3 +33,15 @@ describe "Rolando" {
     assert.equals([espadaDelDestino, libroDeHechizos, collarDivino], rolando.inventario())
   }
 }
+
+describe "Castillo de Piedra" {
+  test "Cuando Rolando llega al castillo de piedra guarda en él todos los artefactos que lleva encima, liberando espacio para poder levantar nuevos. " {
+    rolando.agarrar(espadaDelDestino)   
+    rolando.agarrar(libroDeHechizos)
+    rolando.irAlHogar()
+    rolando.agarrar(collarDivino)
+    rolando.irAlHogar()
+
+    assert.equals([espadaDelDestino, libroDeHechizos, collarDivino], castilloDePiedra.almacen())
+  }
+}

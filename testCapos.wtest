@@ -2,44 +2,44 @@ import capos.*
 
 describe "Rolando" {
   test "Rolando encuentra la espada del destino y la agarra" {
-    rolando.agarrar(espadaDelDestino)
+    rolando.encontrar(espadaDelDestino)
 
     assert.equals([espadaDelDestino], rolando.inventario())
   }
   
   test "Tras agarrar la espada del destino, Rolando encuentra el libro de hechizos y lo agarra" {
-    rolando.agarrar(espadaDelDestino)
-    rolando.agarrar(libroDeHechizos)
+    rolando.encontrar(espadaDelDestino)
+    rolando.encontrar(libroDeHechizos)
 
     assert.equals([espadaDelDestino, libroDeHechizos], rolando.inventario())
   }
   
   test "Tras agarrar la espada del destino y libro de hechizos, Rolando encuentra el colla divino pero no lo agarra" {
-    rolando.agarrar(espadaDelDestino)
-    rolando.agarrar(libroDeHechizos)
-    rolando.agarrar(collarDivino)
+    rolando.encontrar(espadaDelDestino)
+    rolando.encontrar(libroDeHechizos)
+    rolando.encontrar(collarDivino)
 
     assert.equals([espadaDelDestino, libroDeHechizos], rolando.inventario())
   }
 
   test "Rolando puede incrementar la capacidad de su inventario" {
-    rolando.agarrar(espadaDelDestino)
-    rolando.agarrar(libroDeHechizos)
+    rolando.encontrar(espadaDelDestino)
+    rolando.encontrar(libroDeHechizos)
 
     rolando.capacidadMaxima(3)
     assert.equals(3, rolando.capacidadMaxima())
 
-    rolando.agarrar(collarDivino)
+    rolando.encontrar(collarDivino)
     assert.equals([espadaDelDestino, libroDeHechizos, collarDivino], rolando.inventario())
   }
 }
 
 describe "Castillo de Piedra" {
   test "Cuando Rolando llega al castillo de piedra guarda en él todos los artefactos que lleva encima, liberando espacio para poder levantar nuevos. " {
-    rolando.agarrar(espadaDelDestino)   
-    rolando.agarrar(libroDeHechizos)
+    rolando.encontrar(espadaDelDestino)   
+    rolando.encontrar(libroDeHechizos)
     rolando.irAlHogar()
-    rolando.agarrar(collarDivino)
+    rolando.encontrar(collarDivino)
     rolando.irAlHogar()
 
     assert.equals([espadaDelDestino, libroDeHechizos, collarDivino], castilloDePiedra.almacen())
@@ -48,24 +48,24 @@ describe "Castillo de Piedra" {
 
 describe "Saber los artefactos de Rolando" {
   test "Se puede saber que artefactos tiene encima" {
-    rolando.agarrar(espadaDelDestino)   
-    rolando.agarrar(libroDeHechizos)
+    rolando.encontrar(espadaDelDestino)   
+    rolando.encontrar(libroDeHechizos)
 
     assert.equals([espadaDelDestino, libroDeHechizos], rolando.inventario())
   }
 
   test "Se puede saber que artefactos tiene encima y en el castillo" {
-    rolando.agarrar(espadaDelDestino)   
-    rolando.agarrar(libroDeHechizos)
+    rolando.encontrar(espadaDelDestino)   
+    rolando.encontrar(libroDeHechizos)
     rolando.irAlHogar()
-    rolando.agarrar(collarDivino)
+    rolando.encontrar(collarDivino)
 
     assert.equals([collarDivino, espadaDelDestino, libroDeHechizos], rolando.artefactosEnPosesion())
   }
 
   test "Se puede saber si posee un artefacto en especial" {
-    rolando.agarrar(espadaDelDestino)   
-    rolando.agarrar(libroDeHechizos)
+    rolando.encontrar(espadaDelDestino)   
+    rolando.encontrar(libroDeHechizos)
     rolando.irAlHogar()
     
     assert.that(rolando.posee(espadaDelDestino))
@@ -75,12 +75,12 @@ describe "Saber los artefactos de Rolando" {
 
 describe "Saber la historia de los encuentros con los artefactos." {
   test "Se desea saber el orden en que rolando fue encontrandose los artefactos, independientemente de si los agarró o no." {
-    rolando.agarrar(espadaDelDestino)
-    rolando.agarrar(libroDeHechizos)
-    rolando.agarrar(collarDivino)
+    rolando.encontrar(espadaDelDestino)
+    rolando.encontrar(libroDeHechizos)
+    rolando.encontrar(collarDivino)
     rolando.irAlHogar()
-    rolando.agarrar(armaduraDeAceroValyrio)
-    rolando.agarrar(collarDivino)
+    rolando.encontrar(armaduraDeAceroValyrio)
+    rolando.encontrar(collarDivino)
 
     assert.equals([espadaDelDestino, libroDeHechizos, collarDivino, armaduraDeAceroValyrio, collarDivino], rolando.historial())
   }

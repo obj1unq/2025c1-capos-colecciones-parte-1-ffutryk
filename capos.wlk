@@ -9,7 +9,7 @@ object rolando {
   const hogar = castilloDePiedra
   var property capacidadMaxima = 2
   
-  method agarrar(artefacto) {
+  method encontrar(artefacto) {
     historial.add(artefacto)
     if (inventario.size() < capacidadMaxima) inventario.add(artefacto)
   }

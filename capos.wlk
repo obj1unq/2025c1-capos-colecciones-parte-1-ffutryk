@@ -18,6 +18,10 @@ object rolando {
       hogar.almacenar(artefacto)
     })
   }
+
+  method artefactosEnPosesion() = inventario + hogar.almacen()
+
+  method posee(artefacto) = self.artefactosEnPosesion().contains(artefacto)
 }
 
 object castilloDePiedra {

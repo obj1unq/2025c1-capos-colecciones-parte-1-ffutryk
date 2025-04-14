@@ -5,10 +5,12 @@ object armaduraDeAceroValyrio {}
 
 object rolando {
   const property inventario = []
+  const property historial = []
   const hogar = castilloDePiedra
   var property capacidadMaxima = 2
   
   method agarrar(artefacto) {
+    historial.add(artefacto)
     if (inventario.size() < capacidadMaxima) inventario.add(artefacto)
   }
 

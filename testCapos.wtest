@@ -45,3 +45,30 @@ describe "Castillo de Piedra" {
     assert.equals([espadaDelDestino, libroDeHechizos, collarDivino], castilloDePiedra.almacen())
   }
 }
+
+describe "Saber los artefactos de Rolando" {
+  test "Se puede saber que artefactos tiene encima" {
+    rolando.agarrar(espadaDelDestino)   
+    rolando.agarrar(libroDeHechizos)
+
+    assert.equals([espadaDelDestino, libroDeHechizos], rolando.inventario())
+  }
+
+  test "Se puede saber que artefactos tiene encima y en el castillo" {
+    rolando.agarrar(espadaDelDestino)   
+    rolando.agarrar(libroDeHechizos)
+    rolando.irAlHogar()
+    rolando.agarrar(collarDivino)
+
+    assert.equals([collarDivino, espadaDelDestino, libroDeHechizos], rolando.artefactosEnPosesion())
+  }
+
+  test "Se puede saber si posee un artefacto en especial" {
+    rolando.agarrar(espadaDelDestino)   
+    rolando.agarrar(libroDeHechizos)
+    rolando.irAlHogar()
+    
+    assert.that(rolando.posee(espadaDelDestino))
+    assert.notThat(rolando.posee(collarDivino))
+  }
+}

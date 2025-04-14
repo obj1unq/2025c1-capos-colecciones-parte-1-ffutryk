@@ -4,7 +4,7 @@ object collarDivino {}
 object armaduraDeAceroValyrio {}
 
 object rolando {
-  const property inventario = []
+  const property inventario = #{}
   const property historial = []
   const hogar = castilloDePiedra
   var property capacidadMaxima = 2
@@ -27,7 +27,7 @@ object rolando {
 }
 
 object castilloDePiedra {
-  const property almacen = []
+  const property almacen = #{}
 
   method almacenar(artefacto) {
     almacen.add(artefacto)
